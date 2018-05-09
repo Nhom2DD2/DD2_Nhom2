@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.hoangduy.svtour.Home"
-    android:background="@color/colorBule">
+    tools:context="com.example.hoangduy.svtour.HomeActivity"
+    android:background="@drawable/background_home_screen">
 
     <ListView
+        android:layout_margin="5dp"
         android:id="@+id/lvDulich"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_weight="10">
 
     </ListView>
 
@@ -27,7 +28,8 @@
             android:id="@+id/btnThem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/them" />
+            android:text="@string/them"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

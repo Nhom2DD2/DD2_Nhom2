@@ -3,7 +3,7 @@ package com.example.hoangduy.svtour;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Add_New extends AppCompatActivity {
+public class AddNewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

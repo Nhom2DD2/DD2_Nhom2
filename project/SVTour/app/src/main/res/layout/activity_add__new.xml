@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:background="@color/colorBule"
-    tools:context="com.example.hoangduy.svtour.Add_New">
+    tools:context="com.example.hoangduy.svtour.AddNewActivity">
 
     <EditText
         android:id="@+id/edNhap"

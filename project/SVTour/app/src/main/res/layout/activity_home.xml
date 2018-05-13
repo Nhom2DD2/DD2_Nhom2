@@ -21,15 +21,20 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:gravity="center"
+        android:gravity="center_vertical|center_horizontal"
         android:orientation="horizontal">
 
         <Button
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
             android:id="@+id/btnThem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/button_add"
             android:text="@string/them"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 

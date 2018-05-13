@@ -1,6 +1,8 @@
 package com.example.hoangduy.svtour.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -47,13 +49,25 @@ public class ListTourAdapter extends BaseAdapter{
 
         View view = View.inflate(mContext, R.layout.tour_item_listview, null);
 
-        //Image view processing...
-        //ImageView ivTourAvatar = (ImageView) view.findViewById(R.id.ivTourAvatar);
+        ImageView ivTourAvatar = (ImageView) view.findViewById(R.id.ivTourAvatar);
         TextView tvTourName = (TextView) view.findViewById(R.id.tvTourName);
         TextView tvTourDate = (TextView) view.findViewById(R.id.tvTourDate);
 
         tvTourName.setText(mTourList.get(position).getTour_name());
         tvTourDate.setText(mTourList.get(position).getTour_date());
+
+        try{
+            byte[] tour_avatar = mTourList.get(position).getTour_avatar();
+            if(tour_avatar != null) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(tour_avatar, 0, tour_avatar.length);
+                ivTourAvatar.setImageBitmap(bitmap);
+            }else {
+                ivTourAvatar.setImageResource(R.drawable.noimage);
+            }
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
         return view;
     }

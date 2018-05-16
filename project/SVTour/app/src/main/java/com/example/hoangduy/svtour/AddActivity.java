@@ -157,13 +157,14 @@ public class AddActivity extends AppCompatActivity {
                     String note_title = note_name_dialog.getText().toString();
                     String note_description = note_description_dialog.getText().toString();
 
-                    if (note_title.equals("")) {
+                    if(note_description.length() > 0) {
+                        if (note_title.equals("")) {
                             note_title = "ghi chú " + date;
                             DatabaseHelper.insertNote(tour_id, note_title, note_description);
-                    } else {
+                        } else {
                             DatabaseHelper.insertNote(tour_id, note_title, note_description);
+                        }
                     }
-
                     //Lưu image nếu có ảnh được chụp
                     try {
                             DatabaseHelper.insertImage(tour_id, imageViewToByte(ivImage));

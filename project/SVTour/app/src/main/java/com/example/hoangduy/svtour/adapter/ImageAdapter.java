@@ -3,20 +3,16 @@ package com.example.hoangduy.svtour.adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.ThumbnailUtils;
-import android.net.Uri;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.VideoView;
 
 import com.example.hoangduy.svtour.R;
 import com.example.hoangduy.svtour.model.Image;
-import com.example.hoangduy.svtour.model.Video;
 
 import java.util.ArrayList;
 
@@ -24,26 +20,27 @@ import java.util.ArrayList;
  * Created by HoangDuy on 5/11/2018.
  */
 
-public class VideoAdapter extends BaseAdapter{
+public class ImageAdapter extends BaseAdapter{
 
     private Context context;
     private int layout;
-    private ArrayList<Video> VideoList;
+    private ArrayList<Image> ImageList;
 
-    public VideoAdapter(Context context, int layout, ArrayList<Video> videoList) {
+    public ImageAdapter(Context context, int layout, ArrayList<Image> imageList) {
         this.context = context;
         this.layout = layout;
-        VideoList = videoList;
+        ImageList = imageList;
     }
+
 
     @Override
     public int getCount() {
-        return VideoList.size();
+        return ImageList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return VideoList.get(position);
+        return ImageList.get(position);
     }
 
     @Override
@@ -52,8 +49,7 @@ public class VideoAdapter extends BaseAdapter{
     }
 
     private class ViewHolder{
-        //VideoView videoView;
-        TextView tvVideo;
+        ImageView imageView;
     }
 
     @Override
@@ -64,7 +60,7 @@ public class VideoAdapter extends BaseAdapter{
         if(row == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(layout,null);
-            holder.tvVideo = (TextView) row.findViewById(R.id.tvVideo);
+            holder.imageView = (ImageView) row.findViewById(R.id.imageView);
             row.setTag(holder);
         }
         else
@@ -72,10 +68,11 @@ public class VideoAdapter extends BaseAdapter{
             holder = (ViewHolder) row.getTag();
         }
 
-        Video video = VideoList.get(position);
+        Image image = ImageList.get(position);
 
-        holder.tvVideo.setText(video.getVideo_url());
-
+        byte[] tour_byte = image.getImage_byte();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(tour_byte, 0, tour_byte.length);
+        holder.imageView.setImageBitmap(bitmap);
         return row;
     }
 }
